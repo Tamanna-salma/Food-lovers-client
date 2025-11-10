@@ -1,8 +1,9 @@
 import { createBrowserRouter } from "react-router";
 import RootLayout from "../RootLayout.jsx/RootLayout";
-import AllProducts from "../AllProduct/AllProducts";
 import Home from "../Home/Home";
-import Register from "../Register";
+import  Login  from "../../pages/Login";
+import Register from "../../pages/Register";
+import { AuthLayout } from "../AuthLayout/AuthLayout";
 // import MyBids from "../MyBids";
 const router = createBrowserRouter([
   {
@@ -14,16 +15,29 @@ const router = createBrowserRouter([
             element:<Home></Home>
         },
         
-        {
-            path:'register',
-            element:<Register></Register>
-        },
-        
+       
         // {
         //   path:'mybids',
         //   element:<MyBids></MyBids>
         // },
     ]
   },
+  {
+    path:"/auth",
+    element:<AuthLayout></AuthLayout>,
+    children:[
+      {
+            path:'/auth/register',
+            element:<Register></Register>
+        },
+        {
+          path:"/auth/login",
+          element:<Login></Login>
+
+        },
+        
+      
+    ]
+  }
 ]);
 export default router
