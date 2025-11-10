@@ -4,7 +4,7 @@ import Home from "../Home/Home";
 import  Login  from "../../pages/Login";
 import Register from "../../pages/Register";
 import { AuthLayout } from "../AuthLayout/AuthLayout";
-// import MyBids from "../MyBids";
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -16,10 +16,7 @@ const router = createBrowserRouter([
         },
         
        
-        // {
-        //   path:'mybids',
-        //   element:<MyBids></MyBids>
-        // },
+        
     ]
   },
   {

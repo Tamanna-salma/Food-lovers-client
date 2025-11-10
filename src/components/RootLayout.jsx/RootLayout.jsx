@@ -13,7 +13,7 @@ const RootLayout = () => {
             <section>
                 <Outlet></Outlet>
             </section>
-            <section >
+            <section className='sticky top-0 h-fit'>
 
                 <Footer></Footer>
             </section>

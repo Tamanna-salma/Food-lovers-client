@@ -3,7 +3,7 @@ import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { Link, useLocation, useNavigate } from "react-router";
 import { toast } from "react-toastify";
 import { AuthContext } from "../AuthContexts/AuthProvider";
-// import { AuthContext } from './AuthContext'
+
 const Login = () => {
 
   const [toggle, setToggle] = useState(false)
@@ -27,7 +27,6 @@ const Login = () => {
     signin(email, password)
       .then(res => {
         const user = res.user;
-        console.log(user)
         setUser(user)
         navigate(`${location.state ? location.state : '/'}`)
         form.reset()

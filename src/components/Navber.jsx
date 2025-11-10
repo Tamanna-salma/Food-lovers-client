@@ -1,103 +1,169 @@
-import userimg from '../assets/user.png'
 import { use } from "react";
 import { Link, NavLink } from "react-router";
 import { toast } from "react-toastify";
-import { AuthContext } from '../AuthContexts/AuthProvider';
+import userimg from "../assets/user.png";
+import foodlogo from "../assets/img.png";
+import { AuthContext } from "../AuthContexts/AuthProvider";
 
-
-const Navber = () => {
+const Navbar = () => {
   const { user, logOut } = use(AuthContext);
-  console.log(user);
-  const handleLogout = () => {
-    console.log("logout");
 
+  const handleLogout = () => {
     logOut()
       .then(() => {
-        toast.success("your logged out sucessfully")
-
-      }).catch((error) => {
-        console.log(error);
+        toast.success("You have logged out successfully");
       })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
 
-  }
-  const links = <>
-
-    <div className='flex flex-col md:flex-row items-center  gap-1 lg:gap-3'>
+  const links = (
+    <>
       <li>
-        <NavLink to='/' className={({ isActive }) =>
-          isActive ? 'text-purple-600 border-b-2  border-purple-600  text-xl font-bold' : 'text-gray-600 text-xl font-bold hover:text-purple-600'
-        }
-        >Home</NavLink>
+        <NavLink
+          to="/"
+          className={({ isActive }) =>
+            isActive
+              ? "text-purple-600 border-b-2 border-purple-600 text-lg font-semibold"
+              : "text-gray-600 text-lg font-semibold hover:text-purple-600"
+          }
+        >
+          Home
+        </NavLink>
       </li>
       <li>
-        <NavLink to='/services' className={({ isActive }) =>
-          isActive ? 'text-purple-600 border-b-2  border-purple-600  text-xl font-bold' : 'text-gray-600 text-xl font-bold hover:text-purple-600'
-        }
-        >Services</NavLink>
+        <NavLink
+          to="/services"
+          className={({ isActive }) =>
+            isActive
+              ? "text-purple-600 border-b-2 border-purple-600 text-lg font-semibold"
+              : "text-gray-600 text-lg font-semibold hover:text-purple-600"
+          }
+        >
+          Services
+        </NavLink>
       </li>
       <li>
-        <NavLink to='/myProfile' className={({ isActive }) =>
-          isActive ? 'text-purple-600 border-b-2 border-purple-600  text-xl font-bold' : 'text-gray-600 text-xl font-bold hover:text-purple-600'
-        }
-        >My Profile</NavLink>
+        <NavLink
+          to="/myProfile"
+          className={({ isActive }) =>
+            isActive
+              ? "text-purple-600 border-b-2 border-purple-600 text-lg font-semibold"
+              : "text-gray-600 text-lg font-semibold hover:text-purple-600"
+          }
+        >
+          My Profile
+        </NavLink>
       </li>
-    </div>
-
-  </>
+    </>
+  );
 
   return (
-    <div className="navbar bg-base-100 shadow-sm px-1 lg:px-5">
-
+    <div className="navbar bg-[#f6f6f6] shadow-sm px-2 lg:px-5">
+      {/* Left: Logo */}
       <div className="navbar-start">
         <div className="dropdown">
-          <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"> <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /> </svg>
+          <div
+            tabIndex={0}
+            role="button"
+            className="btn btn-ghost lg:hidden"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-5 w-4"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M4 6h16M4 12h8m-8 6h16"
+              />
+            </svg>
           </div>
           <ul
             tabIndex={0}
-            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
-
+            className="menu menu-sm dropdown-content bg-base-100 rounded-box  mt-3 w-52 p-2 shadow"
+          >
             {links}
           </ul>
         </div>
-        <div className='flex gap-2  items-center'>
-          <Link to='https://www.warmpawsllc.com/'>  <img className=' w-10 lg:w-16 hidden lg:flex rounded-full' src="" alt="" /></Link>
-          <h2 className="text-sm lg:text-2xl font-bold hidden md:flex text-[#380794]">WarmPaws</h2>
-        </div>
+
+        <Link
+          to="/"
+          className="flex items-center gap-2 font-bold"
+        >
+          <img
+            className="w-24 lg:w-32"
+            src={foodlogo}
+            alt=""
+          />
+         
+        </Link>
       </div>
+
+     
       <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal px-1">
-
-          {links}
-        </ul>
+        <ul className="menu menu-horizontal px-1 flex gap-4">{links}</ul>
       </div>
+
+     
       <div className="navbar-end gap-3">
-        <div className='flex items-center gap-4'>
-          <div className="relative group">
-           {user && <img referrerPolicy="no-referrer" className='w-12 rounded-full cursor-pointer' src={user?.photoURL ? user?.photoURL : userimg} alt="" />}
-            {user?.displayName && (
-              <p className="absolute left-1/2 -translate-x-1/2 mt-1 text-sm bg-gray-300 text-gray-700 p-2 rounded-2xl font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                {user.displayName}
-              </p>
-            )}
+        {user ? (
+          <div className="dropdown dropdown-end">
+            <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
+              <div className="w-12 rounded-full">
+                <img
+                  referrerPolicy="no-referrer"
+                  src={user?.photoURL || userimg}
+                  alt="User"
+                />
+              </div>
+            </div>
+            <ul
+              tabIndex={0}
+              className="mt-3  p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52"
+            >
+              <li className="text-center font-semibold">{user?.displayName}</li>
+              <div className="divider my-1"></div>
+              <li>
+                <Link to="/addReview">Add Review</Link>
+              </li>
+              <li>
+                <Link to="/myReviews">My Reviews</Link>
+              </li>
+              <li>
+                <button
+                  onClick={handleLogout}
+                  className="text-red-600 font-semibold hover:text-red-700"
+                >
+                  Logout
+                </button>
+              </li>
+            </ul>
           </div>
-
-          {user ?
-            (<button onClick={handleLogout} className="btn bg-fuchsia-800 hover:bg-fuchsia-500 text-white"> Logout</button>
-            ) : (
-              <>
-              <Link to="/auth/login" className='btn bg-fuchsia-800 hover:bg-fuchsia-500 text-white px-10'>login</Link>
-        <Link to="/auth/register" className="btn bg-fuchsia-800 hover:bg-fuchsia-500 text-white"> Register</Link>
-        </>
-            )}
-
-        </div>
-
-
-
+        ) : (
+          <>
+            <Link
+              to="/auth/login"
+              className="btn bg-fuchsia-800 hover:bg-fuchsia-500 text-white px-6"
+            >
+              Login
+            </Link>
+            <Link
+              to="/auth/register"
+              className="btn bg-fuchsia-800 hover:bg-fuchsia-500 text-white px-6"
+            >
+              Register
+            </Link>
+          </>
+        )}
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Navber
+export default Navbar;
