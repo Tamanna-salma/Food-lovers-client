@@ -17,7 +17,7 @@ import 'swiper/css/scrollbar';
 
 const Banner = () => {
   return (
-    <div className="mt-5 mx-auto px-8 py-4">
+    <div className="mt-10 mx-auto max-w-[1120px] px-4 py-4">
       <Swiper
         modules={[Navigation, Pagination, Autoplay, A11y]}
         spaceBetween={30}
@@ -35,35 +35,35 @@ const Banner = () => {
           <img
             src={bannerimg1}
             alt="bannerimg1"
-            className="w-full h-96 md:h-[550px] object-cover"
+            className="w-full h-96 md:h-[500px] object-cover"
           />
         </SwiperSlide>
         <SwiperSlide>
           <img
             src={bannerimg2}
             alt="bannerimg2"
-            className="w-full h-96 md:h-[550px] object-cover"
+            className="w-full h-96 md:h-[500px] object-cover"
           />
         </SwiperSlide>
         <SwiperSlide>
           <img
             src={bannerimg3}
             alt="bannerimg3"
-            className="w-full h-96 md:h-[550px] object-cover"
+            className="w-full h-96 md:h-[500px] object-cover"
           />
         </SwiperSlide>
         <SwiperSlide>
           <img
             src={bannerimg4}
             alt="bannerimg4"
-            className="w-full h-96 md:h-[550px] object-cover"
+            className="w-full h-96 md:h-[500px] object-cover"
           />
         </SwiperSlide>
         <SwiperSlide>
           <img
             src={bannerimg5}
             alt="bannerimg5"
-            className="w-full h-96 md:h-[550px] object-cover"
+            className="w-full h-96 md:h-[500px] object-cover"
           />
         </SwiperSlide>
       </Swiper>

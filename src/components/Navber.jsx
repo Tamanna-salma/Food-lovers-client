@@ -32,33 +32,39 @@ const Navbar = () => {
           Home
         </NavLink>
       </li>
-      <li>
-        <NavLink
-          to="/services"
-          className={({ isActive }) =>
-            isActive
-              ? "text-purple-600 border-b-2 border-purple-600 text-lg font-semibold"
-              : "text-gray-600 text-lg font-semibold hover:text-purple-600"
-          }
-        >
-          Services
-        </NavLink>
-      </li>
-      <li>
-        <NavLink
-          to="/myProfile"
-          className={({ isActive }) =>
-            isActive
-              ? "text-purple-600 border-b-2 border-purple-600 text-lg font-semibold"
-              : "text-gray-600 text-lg font-semibold hover:text-purple-600"
-          }
-        >
-          My Profile
-        </NavLink>
-      </li>
-    </>
-  );
 
+      <li>
+        <NavLink
+          to="/addReview"
+          className={({ isActive }) =>
+            isActive
+              ? "text-purple-600 border-b-2 border-purple-600 text-lg font-semibold"
+              : "text-gray-600 text-lg font-semibold hover:text-purple-600"
+          }
+        >
+        All Food
+        </NavLink>
+      </li>
+      <li>
+        <NavLink
+          to="/myreview"
+          className={({ isActive }) =>
+            isActive
+              ? "text-purple-600 border-b-2 border-purple-600 text-lg font-semibold"
+              : "text-gray-600 text-lg font-semibold hover:text-purple-600"
+          }
+        >
+         Service
+        </NavLink>
+
+      </li>
+
+    </>
+
+
+  )
+
+ 
   return (
     <div className="navbar bg-[#f6f6f6] shadow-sm px-2 lg:px-5">
       {/* Left: Logo */}
@@ -101,16 +107,16 @@ const Navbar = () => {
             src={foodlogo}
             alt=""
           />
-         
+
         </Link>
       </div>
 
-     
+
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1 flex gap-4">{links}</ul>
       </div>
 
-     
+
       <div className="navbar-end gap-3">
         {user ? (
           <div className="dropdown dropdown-end">
@@ -125,37 +131,43 @@ const Navbar = () => {
             </div>
             <ul
               tabIndex={0}
-              className="mt-3  p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52"
+              className="mt-3  p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-32"
             >
               <li className="text-center font-semibold">{user?.displayName}</li>
-              <div className="divider my-1"></div>
-              <li>
-                <Link to="/addReview">Add Review</Link>
-              </li>
-              <li>
-                <Link to="/myReviews">My Reviews</Link>
-              </li>
-              <li>
-                <button
-                  onClick={handleLogout}
-                  className="text-red-600 font-semibold hover:text-red-700"
-                >
-                  Logout
-                </button>
-              </li>
+              <div className="divider  my-1"></div>
+              <div className="">
+               {
+                user && <>
+                 <li>
+                  <NavLink to="/addReview">Add Review</NavLink>
+                </li>
+                <li>
+                  <NavLink to="/myreview">My Reviews</NavLink>
+                </li>
+                </>
+               }
+                <li>
+                  <button
+                    onClick={handleLogout}
+                    className="text-red-600 font-semibold hover:text-red-700"
+                  >
+                    Logout
+                  </button>
+                </li>
+              </div>
             </ul>
           </div>
         ) : (
           <>
             <Link
               to="/auth/login"
-              className="btn bg-fuchsia-800 hover:bg-fuchsia-500 text-white px-6"
+              className="btn bg-green-800 hover:bg-green-600 text-white px-6"
             >
               Login
             </Link>
             <Link
               to="/auth/register"
-              className="btn bg-fuchsia-800 hover:bg-fuchsia-500 text-white px-6"
+              className="btn  bg-green-800 hover:bg-green-600 text-white px-6"
             >
               Register
             </Link>

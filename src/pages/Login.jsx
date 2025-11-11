@@ -22,7 +22,7 @@ const Login = () => {
     const form = e.target;
     const email = form.email.value;
     const password = form.password.value;
-    console.log({ email, password })
+    // console.log({ email, password })
 
     signin(email, password)
       .then(res => {
@@ -56,12 +56,10 @@ const Login = () => {
 
 
   return (
-    <div className='flex justify-center items-center min-h-screen'>
+    <div>
       <title>Login</title>
-      <div className="hero bg-base-200 min-h-screen">
+      <div className="hero bg-base-200 py-8">
         <div className="hero-content flex-col lg:flex-row-reverse">
-
-
 
           <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
             <h1 className='font-semibold text-2xl text-center '>Login your account</h1>
