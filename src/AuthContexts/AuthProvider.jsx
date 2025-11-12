@@ -22,7 +22,7 @@ const signInUser=(email,password)=>{
     return signInWithEmailAndPassword(auth, email, password)
 }
 
-const signInwithgoogle=()=>{
+const signInwithGoogle=()=>{
     setloading(true)
    return signInWithPopup(auth,googleProvider);
 }
@@ -54,7 +54,7 @@ useEffect(()=>{
 const authInfo={
         createUser,
       signInUser,
-      signInwithgoogle,
+      signInwithGoogle,
         user,
         loading,
         updateUser,

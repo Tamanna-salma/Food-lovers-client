@@ -8,7 +8,7 @@ const Login = () => {
 
   const [toggle, setToggle] = useState(false)
   const [error, setError] = useState('')
-  const { signin, signInWithGoogle, setUser } = use(AuthContext);
+  const { signInUser, signInWithGoogle, setUser } = use(AuthContext);
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -24,7 +24,7 @@ const Login = () => {
     const password = form.password.value;
     // console.log({ email, password })
 
-    signin(email, password)
+    signInUser(email, password)
       .then(res => {
         const user = res.user;
         setUser(user)

@@ -1,35 +1,57 @@
-import React from "react";
+import React, { use } from "react";
+import { AuthContext } from "../AuthContexts/AuthProvider";
+import { toast } from "react-toastify";
 
 const AddReview = () => {
+
+  const { user } = use(AuthContext)
+
+  const handleReview = (e) => {
+    e.preventDefault()
+    const form = e.target
+    const food_name = form.food_name.value
+    const photo = form.food_image.value
+    const restaurant_name = form.restaurant_name.value
+    const restaurant_location = form.location.value
+    const rating = form.rating.value
+    const review = form.review_text.value
+
+    const newReview = {
+      food_name,
+      photo,
+      restaurant_name,
+      restaurant_location,
+      rating: parseFloat(rating),
+      review,
+      email: user?.email,
+      reviewer_name: user?.displayName
+    }
+
+    fetch('http://localhost:3000/foods', {
+      method: 'POST',
+      headers: {
+        'content-type': 'application/json'
+      },
+      body: JSON.stringify(newReview)
+    })
+      .then(res => res.json())
+      .then(data => {
+        toast.success('Your review added.')
+        form.reset()
+
+      })
+      .catch(err => {
+        toast.error(err.message)
+      })
+  }
+
   return (
     <div className="max-w-2xl mx-auto p-6 bg-white rounded-2xl shadow-md mt-10">
       <h2 className="text-3xl font-bold text-center mb-6 text-green-700">
-       Add Review
+        Add Review
       </h2>
 
-      <form className="space-y-4">
-        {/* User Info */}
-        <div>
-          <label className="font-medium">User Name</label>
-          <input
-            type="text"
-            name="user_name"
-            placeholder="Enter your name"
-            className="w-full mt-1 p-2 border border-gray-400 rounded-lg "
-            required
-          />
-        </div>
-
-        <div>
-          <label className="font-medium">User Email</label>
-          <input
-            type="email"
-            name="email"
-            placeholder="Enter your email"
-            className="w-full mt-1 p-2  border border-gray-400 rounded-lg"
-            required
-          />
-        </div>
+      <form onSubmit={handleReview} className="space-y-4">
 
         {/* Review Info */}
         <div>

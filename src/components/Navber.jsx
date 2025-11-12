@@ -142,6 +142,9 @@ const Navbar = () => {
                 <li>
                   <NavLink to="/myreview">My Reviews</NavLink>
                 </li>
+                <li>
+                  <NavLink to="/myFavourites">My Favourites</NavLink>
+                </li>
                 </>
                }
                 <li>

@@ -10,6 +10,7 @@ import FoodDetails from "../../pages/FoodDetails";
 import AllReviews from "../../pages/AllReviews";
 import Recipes from "../../pages/Recipes";
 import Error from "../../pages/Error";
+import MyFavourites from "../../pages/MyFavourites";
 
 const router = createBrowserRouter([
   {
@@ -24,6 +25,10 @@ const router = createBrowserRouter([
        {
         path:"/addReview",
         element:<AddReview></AddReview>
+       },
+       {
+        path: "/myFavourites",
+        element: <MyFavourites></MyFavourites>
        },
        {
         path:"/myreview",
