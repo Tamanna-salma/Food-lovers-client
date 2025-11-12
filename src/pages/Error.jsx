@@ -1,5 +1,5 @@
 import React from 'react'
-import error from "../assets/download.jpeg"
+import error from "../assets/Error.jpeg"
 const Error = () => {
   return (
     <div>

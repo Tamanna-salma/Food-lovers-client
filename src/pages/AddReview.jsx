@@ -36,7 +36,7 @@ const AddReview = () => {
     })
       .then(res => res.json())
       .then(data => {
-        toast.success('Your review added.')
+        toast.success('Your review added.',data)
         form.reset()
 
       })
@@ -46,12 +46,12 @@ const AddReview = () => {
   }
 
   return (
-    <div className="max-w-2xl mx-auto p-6 bg-white rounded-2xl shadow-md mt-10">
+    <div className=" w-full lg:max-w-2xl mx-auto p-6 mb-6 bg-white rounded-2xl shadow-md mt-10">
       <h2 className="text-3xl font-bold text-center mb-6 text-green-700">
         Add Review
       </h2>
 
-      <form onSubmit={handleReview} className="space-y-4">
+      <form onSubmit={handleReview} className="space-y-4 ">
 
         {/* Review Info */}
         <div>

@@ -54,10 +54,25 @@ const Food = ({ food }) => {
           alt=""
           className="w-full h-48 object-cover rounded-xl" />
 
-        <div className="p-4 space-y-2">
-          <h3 className=" text-sm lg:text-lg font-bold text-orange-500">
+        <div className="p-4 space-y-2 ">
+         <div className='flex justify-between'>
+           <h3 className=" text-sm lg:text-lg font-bold text-orange-500">
             {food_name}
-          </h3>
+            </h3>
+            
+             <div className="flex justify-end">
+            <button
+              onClick={toggleFavorite}
+              className="text-2xl p-1 focus:outline-none">
+            
+              <span className={`text-red-500 ${isFavorite ? 'fill-current' : 'text-gray-400'}`}>
+                {isFavorite ? <FaHeart /> : <FaRegHeart />}
+              </span>
+            </button>
+          </div>
+          
+         </div>
+         
 
           <div className="flex justify-between items-center text-sm lg:text-lg mb-4">
             <span className="font-medium">
@@ -76,17 +91,6 @@ const Food = ({ food }) => {
             </span>
           </div>
 
-          <div className="flex justify-end">
-            <button
-              onClick={toggleFavorite}
-              className="text-2xl p-1 focus:outline-none"
-            >
-              {/* Filled heart or empty heart based on the state */}
-              <span className={`text-red-500 ${isFavorite ? 'fill-current' : 'text-gray-400'}`}>
-                {isFavorite ? <FaHeart /> : <FaRegHeart />}
-              </span>
-            </button>
-          </div>
 
           <Link to={`/fooddetails/${_id}`} className=" w-full lg:w-full  p-3 py-2 rounded-lg font-medium btn bg-green-800 hover:bg-green-600 text-white transition" > View Details
           </Link>
