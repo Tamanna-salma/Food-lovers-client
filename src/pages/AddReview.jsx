@@ -3,8 +3,8 @@ import React from "react";
 const AddReview = () => {
   return (
     <div className="max-w-2xl mx-auto p-6 bg-white rounded-2xl shadow-md mt-10">
-      <h2 className="text-3xl font-bold text-center mb-6 text-gray-800">
-        🍽 Add Review
+      <h2 className="text-3xl font-bold text-center mb-6 text-green-700">
+       Add Review
       </h2>
 
       <form className="space-y-4">
@@ -15,7 +15,7 @@ const AddReview = () => {
             type="text"
             name="user_name"
             placeholder="Enter your name"
-            className="w-full mt-1 p-2 border rounded-lg focus:ring focus:ring-blue-200"
+            className="w-full mt-1 p-2 border border-gray-400 rounded-lg "
             required
           />
         </div>
@@ -26,7 +26,7 @@ const AddReview = () => {
             type="email"
             name="email"
             placeholder="Enter your email"
-            className="w-full mt-1 p-2 border rounded-lg focus:ring focus:ring-blue-200"
+            className="w-full mt-1 p-2  border border-gray-400 rounded-lg"
             required
           />
         </div>
@@ -38,7 +38,7 @@ const AddReview = () => {
             type="text"
             name="food_name"
             placeholder="Enter food name"
-            className="w-full mt-1 p-2 border rounded-lg focus:ring focus:ring-blue-200"
+            className="w-full mt-1 p-2  border border-gray-400 rounded-lg"
             required
           />
         </div>
@@ -49,7 +49,7 @@ const AddReview = () => {
             type="text"
             name="food_image"
             placeholder="Paste image URL"
-            className="w-full mt-1 p-2 border rounded-lg focus:ring focus:ring-blue-200"
+            className="w-full mt-1 p-2 border border-gray-400 rounded-lg"
             required
           />
         </div>
@@ -60,7 +60,7 @@ const AddReview = () => {
             type="text"
             name="restaurant_name"
             placeholder="Enter restaurant name"
-            className="w-full mt-1 p-2 border rounded-lg focus:ring focus:ring-blue-200"
+            className="w-full mt-1 p-2  border border-gray-400 rounded-lg"
             required
           />
         </div>
@@ -71,13 +71,13 @@ const AddReview = () => {
             type="text"
             name="location"
             placeholder="Enter location"
-            className="w-full mt-1 p-2 border rounded-lg focus:ring focus:ring-blue-200"
+            className="w-full mt-1 p-2  border border-gray-400 rounded-lg"
             required
           />
         </div>
 
         <div>
-          <label className="font-medium">Star Rating (1–5)</label>
+          <label className="font-medium">Star Rating </label>
           <input
             type="number"
             name="rating"
@@ -85,7 +85,7 @@ const AddReview = () => {
             max="5"
             step="0.1"
             placeholder="Enter rating"
-            className="w-full mt-1 p-2 border rounded-lg focus:ring focus:ring-blue-200"
+            className="w-full mt-1 p-2  border border-gray-400 rounded-lg"
             required
           />
         </div>
@@ -96,14 +96,14 @@ const AddReview = () => {
             name="review_text"
             rows="4"
             placeholder="Write your review..."
-            className="w-full mt-1 p-2 border rounded-lg focus:ring focus:ring-blue-200"
+            className="w-full mt-1 p-2  border border-gray-400 rounded-lg"
             required
           ></textarea>
         </div>
 
         <button
           type="submit"
-          className="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition duration-300"
+          className="w-full bg-green-800 text-white py-2 rounded-lg hover:bg-green-600"
         >
           Submit Review
         </button>

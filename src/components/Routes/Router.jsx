@@ -8,6 +8,8 @@ import AddReview from "../../pages/AddReview";
 import MyReviews from "../../pages/MyReviews";
 import FoodDetails from "../../pages/FoodDetails";
 import AllReviews from "../../pages/AllReviews";
+import Recipes from "../../pages/Recipes";
+import Error from "../../pages/Error";
 
 const router = createBrowserRouter([
   {
@@ -31,10 +33,15 @@ const router = createBrowserRouter([
         path:"/allreviews",
         element:<AllReviews></AllReviews>
        },
+       
         {
           path:"/fooddetails/:id",
           loader:({params})=>fetch(`http://localhost:3000/foods/${params.id}`),
           element:<FoodDetails></FoodDetails>
+        },
+        {
+          path:"/recipes",
+          element:<Recipes></Recipes>
         }
     ]
   },
@@ -50,10 +57,14 @@ const router = createBrowserRouter([
           path:"/auth/login",
           element:<Login></Login>
 
-        },
+        }, 
         
-      
+        {
+          path:"error",
+          element:<Error></Error>
+        }
     ]
+  
   }
 ]);
 export default router

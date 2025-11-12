@@ -35,36 +35,34 @@ const Navbar = () => {
 
       <li>
         <NavLink
-          to="/addReview"
+          to="/allreviews"
           className={({ isActive }) =>
             isActive
               ? "text-purple-600 border-b-2 border-purple-600 text-lg font-semibold"
               : "text-gray-600 text-lg font-semibold hover:text-purple-600"
           }
         >
-        All Food
+       All Reviews
         </NavLink>
       </li>
       <li>
         <NavLink
-          to="/myreview"
+          to="/recipes"
           className={({ isActive }) =>
             isActive
               ? "text-purple-600 border-b-2 border-purple-600 text-lg font-semibold"
               : "text-gray-600 text-lg font-semibold hover:text-purple-600"
           }
         >
-        All Reviews
+      Recipes
         </NavLink>
 
       </li>
 
     </>
 
-
   )
 
- 
   return (
     <div className="navbar bg-[#f6f6f6] shadow-sm px-2 lg:px-5">
       {/* Left: Logo */}
