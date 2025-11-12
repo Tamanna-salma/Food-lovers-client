@@ -6,6 +6,8 @@ import Register from "../../pages/Register";
 import { AuthLayout } from "../AuthLayout/AuthLayout";
 import AddReview from "../../pages/AddReview";
 import MyReviews from "../../pages/MyReviews";
+import FoodDetails from "../../pages/FoodDetails";
+import AllReviews from "../../pages/AllReviews";
 
 const router = createBrowserRouter([
   {
@@ -25,7 +27,15 @@ const router = createBrowserRouter([
         path:"/myreview",
         element:<MyReviews></MyReviews>
        },
-        
+       {
+        path:"/allreviews",
+        element:<AllReviews></AllReviews>
+       },
+        {
+          path:"/fooddetails/:id",
+          loader:({params})=>fetch(`http://localhost:3000/foods/${params.id}`),
+          element:<FoodDetails></FoodDetails>
+        }
     ]
   },
   {

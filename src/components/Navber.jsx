@@ -54,7 +54,7 @@ const Navbar = () => {
               : "text-gray-600 text-lg font-semibold hover:text-purple-600"
           }
         >
-         Service
+        All Reviews
         </NavLink>
 
       </li>
@@ -131,7 +131,7 @@ const Navbar = () => {
             </div>
             <ul
               tabIndex={0}
-              className="mt-3  p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-32"
+              className="mt-3  p-2 shadow menu menu-sm dropdown-content bg-base-200 cursor-pointer rounded-box w-32"
             >
               <li className="text-center font-semibold">{user?.displayName}</li>
               <div className="divider  my-1"></div>
