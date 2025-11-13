@@ -6,13 +6,13 @@ import Footer from '../Footer'
 export const AuthLayout = () => {
   return (
     <div>
-        <header>
+        <header className='sticky top-0 h-fit'>
             <Navber></Navber>
         </header>
         <main className=''>
             <Outlet></Outlet>
         </main>
-        <section>
+        <section className='sticky top-0 h-fit'>
           <Footer></Footer>
         </section>
     </div>

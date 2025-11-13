@@ -14,7 +14,7 @@ const Home = () => {
   return (
     <div>
 <Banner></Banner>
-{/* <RecentFood recentFoodspromise={recentFoodspromise}></RecentFood> */}
+
 <Suspense fallback={<Loading></Loading>}>
         <RecentFood recentFoodspromise={recentFoodspromise} />
       </Suspense>
