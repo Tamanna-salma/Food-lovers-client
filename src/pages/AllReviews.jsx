@@ -27,7 +27,7 @@ const AllReviews = () => {
 
   return (
     <div className="mx-auto p-5">
-      {/* Header */}
+     
       <header className="text-center mb-8">
         <h1 className="text-3xl font-semibold text-blue-800">All Reviews</h1>
         <p className="text-gray-600 mt-2">
@@ -35,7 +35,6 @@ const AllReviews = () => {
         </p>
       </header>
 
-      {/* Search Input */}
       <div className="flex justify-center mb-8">
         <input
           type="text"
@@ -46,7 +45,6 @@ const AllReviews = () => {
         />
       </div>
 
-      {/* Loading Spinner */}
       {loading ? (
         <Loading></Loading>
       ) : review.length === 0 ? (
