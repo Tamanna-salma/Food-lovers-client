@@ -7,7 +7,7 @@ import { toast } from 'react-toastify';
 const Register = () => {
 
   const [toggle, setToggle] = useState(false)
-  const { createUser, setUser, updateUser, signInWithGoogle } = use(AuthContext);
+  const { createUser, setUser, updateUser,  signInwithGoogle } = use(AuthContext);
 
   const navigate = useNavigate();
 
@@ -66,7 +66,7 @@ console.log("Form is valid:", { name, email, photo, password, confirmPassword })
   }
 
   const handleGoogleSignIn = () => {
-    signInWithGoogle()
+     signInwithGoogle()
       .then(result => {
         const user = result.user;
         console.log(user)

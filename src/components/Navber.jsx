@@ -98,10 +98,9 @@ const Navbar = () => {
 
         <Link
           to="https://www.foodnetwork.com/"
-          className="flex items-center gap-2 font-bold"
-        >
+          className="flex items-center gap-2 font-bold">
           <img
-            className="w-24 lg:w-32 mix-blend-darken"
+            className="w-16 lg:w-32 mix-blend-darken"
             src={foodlogo}
             alt=""
           />
@@ -162,13 +161,13 @@ const Navbar = () => {
           <>
             <Link
               to="/auth/login"
-              className="btn bg-green-800 hover:bg-green-600 text-white px-6"
+              className="btn bg-green-800 hover:bg-green-600 text-white px-2 lg:px-6"
             >
               Login
             </Link>
             <Link
               to="/auth/register"
-              className="btn  bg-green-800 hover:bg-green-600 text-white px-6"
+              className="btn  bg-green-800 hover:bg-green-600 text-white px-2 lg:px-6"
             >
               Register
             </Link>
