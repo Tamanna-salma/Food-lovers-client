@@ -3,6 +3,7 @@ import Banner from '../Banner'
 import RecentFood from '../../pages/RecentFood'
 import Loading from '../../pages/Loading'
 import Helpfull from '../../pages/Helpfull'
+import FoodDetails from '../../pages/FoodDetails'
 
 
 const recentFoodspromise=fetch('http://localhost:3000/recentFood')
@@ -17,6 +18,7 @@ const Home = () => {
         <RecentFood recentFoodspromise={recentFoodspromise} />
       </Suspense>
       <Helpfull></Helpfull>
+      <FoodDetails></FoodDetails>
     </div>
   )
 }
