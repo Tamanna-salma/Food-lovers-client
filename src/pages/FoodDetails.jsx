@@ -14,7 +14,7 @@ const FoodDetails = () => {
   if (!food || loading) {
     return (
       <div className="flex justify-center mt-20">
-    <Loading></Loading>
+    {/* <Loading></Loading> */}
       </div>
     );
   }
@@ -57,12 +57,12 @@ const FoodDetails = () => {
 
       const data = await response.json();
       if (data.insertedId) {
-        console.log("✅ Food added to favourites:", data);
+        console.log(" Food added to favourites:", data);
       } else {
-        console.log("⚠️ Error adding to favourites");
+        console.log(" Error adding to favourites");
       }
     } catch (error) {
-      console.error("❌ Error adding to favourites:", error);
+      console.error(" Error adding to favourites:", error);
     } finally {
       setLoading(false);
     }

@@ -5,9 +5,8 @@ import pic3 from "../assets/image2.jpg"
 const Helpfull = () => {
   return (
     <div>
-        <section className="bg-pink-100 py-12">
+        <section className="bg-pink-100 py-8">
       <div className="max-w-7xl mx-auto px-6">
-        {/* Heading */}
         <div className="text-center mb-10">
           <h2 className="text-3xl md:text-4xl font-bold text-green-800">
             Get Involved in Food Sharing
@@ -18,10 +17,8 @@ const Helpfull = () => {
           </p>
         </div>
 
-        {/* Cards grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           
-          {/* Card 1 */}
           <div className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition transform hover:-translate-y-1">
             <img
               src={pic}
@@ -41,7 +38,6 @@ const Helpfull = () => {
             </div>
           </div>
 
-          {/* Card 2 */}
           <div className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition transform hover:-translate-y-1">
             <img
               src={pic3}
@@ -61,7 +57,7 @@ const Helpfull = () => {
             </div>
           </div>
 
-          {/* Card 3 */}
+          
           <div className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition transform hover:-translate-y-1">
             <img
               src={pic2}

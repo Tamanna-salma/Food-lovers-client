@@ -4,6 +4,7 @@ import RecentFood from '../../pages/RecentFood'
 import Loading from '../../pages/Loading'
 import Helpfull from '../../pages/Helpfull'
 import FoodDetails from '../../pages/FoodDetails'
+import Group from '../../pages/Group'
 
 
 const recentFoodspromise=fetch('http://localhost:3000/recentFood')
@@ -19,6 +20,7 @@ const Home = () => {
       </Suspense>
       <Helpfull></Helpfull>
       <FoodDetails></FoodDetails>
+      <Group></Group>
     </div>
   )
 }
