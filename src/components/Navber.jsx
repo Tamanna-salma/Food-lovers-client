@@ -64,7 +64,7 @@ const Navbar = () => {
   )
 
   return (
-    <div className="navbar bg-[#f6f6f6] shadow-sm px-2 lg:px-5">
+    <div className="navbar bg-gray-200 shadow-sm px-2 lg:px-5">
       {/* Left: Logo */}
       <div className="navbar-start">
         <div className="dropdown">
@@ -97,11 +97,11 @@ const Navbar = () => {
         </div>
 
         <Link
-          to="/"
+          to="https://www.foodnetwork.com/"
           className="flex items-center gap-2 font-bold"
         >
           <img
-            className="w-24 lg:w-32"
+            className="w-24 lg:w-32 mix-blend-darken"
             src={foodlogo}
             alt=""
           />

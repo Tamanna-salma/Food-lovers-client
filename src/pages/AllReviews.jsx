@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Food from "./Food";
 import Loading from "./Loading";
-
+import match from '../assets/match.jpeg'
 const AllReviews = () => {
   const [review, setReview] = useState([]);
   const [search, setSearch] = useState("");
@@ -49,9 +49,9 @@ const AllReviews = () => {
         <Loading></Loading>
       ) : review.length === 0 ? (
     
-        <div className="text-center py-20">
-          <p className="text-gray-600 text-xl">🔍 No reviews found for “{search}”</p>
-          <p className="text-sm text-gray-400 mt-2">
+        <div className="flex flex-col justify-center items-center ">
+         <img src={match} alt="" />
+          <p className="text-sm  mt-2">
             Try searching with a different food name.
           </p>
         </div>
