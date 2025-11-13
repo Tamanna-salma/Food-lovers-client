@@ -1,7 +1,9 @@
 import React, { useEffect, useState, use } from 'react';
 import { AuthContext } from '../AuthContexts/AuthProvider';
-import Loading from './Loading'; 
-import found  from "../assets/data.jpeg"
+import Loading from './Loading';
+import found from '../assets/data.jpeg';
+import Swal from 'sweetalert2';
+
 const MyReviews = () => {
   const { user } = use(AuthContext);
   const [myReviews, setMyReviews] = useState([]);
@@ -21,10 +23,75 @@ const MyReviews = () => {
       .finally(() => setLoading(false));
   }, [user]);
 
+  //  Delete review with SweetAlert2 modal
+  const handleDelete = (id) => {
+    Swal.fire({
+      title: 'Are you sure?',
+      text: "You won't be able to revert this!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#d33',
+      cancelButtonColor: '#3085d6',
+      confirmButtonText: 'Yes, delete it!',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch(`http://localhost:3000/foods/${id}`, { method: 'DELETE' })
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.deletedCount > 0) {
+              Swal.fire('Deleted!', 'Your review has been deleted.', 'success');
+              setMyReviews((prev) => prev.filter((review) => review._id !== id));
+            }
+          })
+          .catch((error) => console.error('Error deleting review:', error));
+      }
+    });
+  };
+
+  //  review with SweetAlert2 modal 
+  const handleEdit = (id, currentName) => {
+    Swal.fire({
+      title: 'Edit Food Name',
+      input: 'text',
+      inputValue: currentName,
+      inputPlaceholder: 'Enter new food name',
+      showCancelButton: true,
+      confirmButtonText: 'Save Changes',
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#aaa',
+      preConfirm: (newName) => {
+        if (!newName || newName === currentName) {
+          Swal.showValidationMessage('Please enter a new name!');
+          return false;
+        }
+
+        return fetch(`http://localhost:3000/foods/${id}`, {
+          method: 'PATCH',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ food_name: newName }),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.modifiedCount > 0) {
+              setMyReviews((prev) =>
+                prev.map((review) =>
+                  review._id === id ? { ...review, food_name: newName } : review
+                )
+              );
+              Swal.fire('Updated!', 'Your review name has been updated.', 'success');
+            } else {
+              Swal.fire('Error', 'No changes were made.', 'error');
+            }
+          })
+          .catch(() => Swal.fire('Error', 'Update failed.', 'error'));
+      },
+    });
+  };
+
   if (loading) {
     return (
       <div className="flex justify-center items-center h-64">
-        <Loading /> 
+        <Loading />
       </div>
     );
   }
@@ -32,10 +99,10 @@ const MyReviews = () => {
   if (myReviews.length === 0) {
     return (
       <div className="text-center mt-10">
-        <div className='flex justify-center items-center'>
-          <img src={found} alt="" />
+        <div className="flex justify-center items-center">
+          <img src={found} alt="" className="w-60 h-auto" />
         </div>
-        <p className="text-gray-500 mt-2">You haven't added any reviews yet.</p>
+        <p className="text-gray-500 mt-2 mb-5">You haven't added any reviews yet.</p>
       </div>
     );
   }
@@ -73,10 +140,16 @@ const MyReviews = () => {
 
           {/* Action Buttons */}
           <div className="flex space-x-4">
-            <button className="px-4 py-2 bg-yellow-500 text-white rounded-lg hover:bg-yellow-600 transition">
+            <button
+              onClick={() => handleEdit(myReview._id, myReview.food_name)}
+              className="px-4 py-2 bg-green-800 text-white rounded-lg hover:bg-green-600 transition"
+            >
               Edit
             </button>
-            <button className="px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600 transition">
+            <button
+              onClick={() => handleDelete(myReview._id)}
+              className="px-4 py-2 bg-red-700 text-white rounded-lg hover:bg-red-600 transition"
+            >
               Delete
             </button>
           </div>

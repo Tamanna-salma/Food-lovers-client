@@ -1,7 +1,7 @@
 import React, { use } from 'react'
 import Food from './Food';
 import { Link } from 'react-router';
-
+import { MdOutlineShowChart } from "react-icons/md";
 const RecentFood = ({recentFoodspromise}) => {
     const foods=use(recentFoodspromise);
     console.log(foods);
@@ -18,7 +18,7 @@ const RecentFood = ({recentFoodspromise}) => {
        </div>
         <div className='text-center mt-4'>
         
-        <Link to="/allreviews" className='p-6 py-7 ounded-lg font-medium text-2xl btn bg-green-800 hover:bg-green-600 text-white'>Show All</Link>
+        <Link to="/allreviews" className='p-6 py-7 ounded-lg font-medium text-xl btn bg-green-800 hover:bg-green-600 text-white'><MdOutlineShowChart /> Show All</Link>
       
        </div>
     </div>

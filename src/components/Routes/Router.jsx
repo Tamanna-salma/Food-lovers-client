@@ -11,6 +11,7 @@ import AllReviews from "../../pages/AllReviews";
 import Recipes from "../../pages/Recipes";
 import Error from "../../pages/Error";
 import MyFavourites from "../../pages/MyFavourites";
+import PrivateRoute from "../../AuthContexts/PrivateRoute";
 
 const router = createBrowserRouter([
   {
@@ -24,15 +25,21 @@ const router = createBrowserRouter([
         
        {
         path:"/addReview",
-        element:<AddReview></AddReview>
+        element:<PrivateRoute>
+          <AddReview></AddReview>
+        </PrivateRoute>
        },
        {
         path: "/myFavourites",
-        element: <MyFavourites></MyFavourites>
+        element: <PrivateRoute>
+          <MyFavourites></MyFavourites>
+        </PrivateRoute>
        },
        {
         path:"/myreview",
-        element:<MyReviews></MyReviews>
+        element:<PrivateRoute>
+          <MyReviews></MyReviews>
+        </PrivateRoute>
        },
        {
         path:"/allreviews",
@@ -63,13 +70,12 @@ const router = createBrowserRouter([
           element:<Login></Login>
 
         }, 
-        
-        {
-          path:"error",
-          element:<Error></Error>
-        }
     ]
   
-  }
+  },
+  {
+          path:"/*",
+          element:<Error></Error>
+        }
 ]);
 export default router
