@@ -22,7 +22,7 @@ const Food = ({ food }) => {
   useEffect(() => {
     if (!user?.email) return;
 
-    fetch(`http://localhost:3000/favourites?email=${user.email}`)
+    fetch("http://localhost:3000/favourites?email=${user.email")
       .then((res) => res.json())
       .then((data) => {
         const alreadyFav = data.find((fav) => fav.food_id === _id);
