@@ -80,7 +80,7 @@ const Food = ({ food }) => {
         <img
           src={photo}
           alt=""
-          className="w-full h-48 object-cover rounded-xl"
+          className=" w-full lg:w-96 h-48 object-cover rounded-xl"
         />
 
         <div className="p-4 space-y-2">

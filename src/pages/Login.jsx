@@ -8,11 +8,11 @@ const Login = () => {
 
   const [toggle, setToggle] = useState(false)
   const [error, setError] = useState('')
-  const { signInUser, signInWithGoogle, setUser } = use(AuthContext);
+  const { signInUser,  signInwithGoogle, setUser } = use(AuthContext);
   const location = useLocation();
   const navigate = useNavigate();
 
-  const handleToggle = ()=>{
+  const handleToggle = () => {
     setToggle(!toggle)
   }
   const emailRef = useRef()
@@ -39,10 +39,10 @@ const Login = () => {
   }
 
   const handleGoogleSignIn = () => {
-    signInWithGoogle()
+   signInwithGoogle()
       .then(result => {
         const user = result.user;
-        console.log(user)
+        // console.log(user)
         setUser(user)
         navigate(`${location.state ? location.state : '/'}`)
         toast.success('You have logged in succesfully!')
@@ -71,9 +71,9 @@ const Login = () => {
                 {/* password */}
                 <div className='relative'>
                   <label className="label">Password</label>
-                  <input name='password' type={toggle? 'text' : 'password'} className="input" placeholder="Password" required />
-                  <div className='absolute bottom-3.5 right-3' onClick={handleToggle}>{toggle? <FaEyeSlash/> : <FaEye/>}</div>
-                  
+                  <input name='password' type={toggle ? 'text' : 'password'} className="input" placeholder="Password" required />
+                  <div className='absolute bottom-3.5 right-3' onClick={handleToggle}>{toggle ? <FaEyeSlash /> : <FaEye />}</div>
+
                 </div>
 
                 {error && <p className='text-red-600 text-xs'> {error} </p>}
