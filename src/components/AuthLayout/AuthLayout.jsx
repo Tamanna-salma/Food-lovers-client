@@ -6,10 +6,10 @@ import Footer from '../Footer'
 export const AuthLayout = () => {
   return (
     <div>
-        <header className='sticky top-0 h-fit'>
+        <header className='sticky z-100 top-0 h-fit'>
             <Navber></Navber>
         </header>
-        <main className=''>
+        <main className='min-h-fit'>
             <Outlet></Outlet>
         </main>
         <section className='sticky top-0 h-fit'>

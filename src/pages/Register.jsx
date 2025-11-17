@@ -40,7 +40,7 @@ if (password !== confirmPassword) {
 
 console.log("Form is valid:", { name, email, photo, password, confirmPassword });
 
-    console.log({ name, photo, email, password, confirmPassword});
+    // console.log({ name, photo, email, password, confirmPassword});
 
     createUser(email, password)
       .then(res => {
@@ -98,15 +98,14 @@ console.log("Form is valid:", { name, email, photo, password, confirmPassword })
         const errorCode = error.code;
         toast.error(errorCode)
 
-
       })
   };
   return (
-    <div className='py-8'>
+    <div className='relative  py-18'>
       <title>Register</title>
-      <div className='flex justify-center items-center min-h-screen'>
-        <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl py-5">
-          <h1 className='font-semibold text-2xl text-center '>Register your account</h1>
+      <div className='flex justify-center items-center min-h-fit'>
+        <div className="card bg-base-200 w-full max-w-sm shrink-0 shadow-2xl py-5">
+          <h1 className='font-semibold text-sm lg:text-2xl text-center '>Register your account</h1>
           <form onSubmit={handleRegister} className="card-body">
             <fieldset className="fieldset">
               {/* Name */}

@@ -54,7 +54,6 @@ const Login = () => {
       })
   }
 
-
   return (
     <div>
       <title>Login</title>
@@ -62,8 +61,8 @@ const Login = () => {
         <div className="hero-content flex-col lg:flex-row-reverse">
 
           <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
-            <h1 className='font-semibold text-2xl text-center '>Login your account</h1>
-            <form onSubmit={handleLogin} className="card-body">
+            <h1 className='font-semibold text-sm lg:text-2xl text-center '>Login your account</h1>
+            <form onSubmit={handleLogin} className="card-body ">
 
               <fieldset className="fieldset">
                 {/* email */}
@@ -92,8 +91,6 @@ const Login = () => {
           </div>
         </div>
       </div>
-
-
 
     </div>
   )

@@ -34,7 +34,7 @@ const MyReviews = () => {
       showCancelButton: true,
       confirmButtonColor: '#d33',
       cancelButtonColor: '#3085d6',
-      confirmButtonText: 'Yes, delete it!',
+      confirmButtonText: 'Confirm!',
     }).then((result) => {
       if (result.isConfirmed) {
         fetch(`http://localhost:3000/foods/${id}`, { method: 'DELETE' })
@@ -49,7 +49,6 @@ const MyReviews = () => {
     });
   };
 
-  // Start editing
   const handleEditStart = (review) => {
     setEditingId(review._id);
     setEditData({
@@ -60,13 +59,11 @@ const MyReviews = () => {
     });
   };
 
-  // Handle input changes
   const handleChange = (e) => {
     const { name, value } = e.target;
     setEditData((prev) => ({ ...prev, [name]: value }));
   };
 
-  // Submit edit form
   const handleEditSubmit = async (e, id) => {
     e.preventDefault();
     const res = await fetch(`http://localhost:3000/foods/${id}`, {
@@ -120,6 +117,7 @@ const MyReviews = () => {
               <h3 className="text-xl font-semibold text-blue-800">
                 {review.food_name}
               </h3>
+              
               <p className="text-gray-600">{review.restaurant_name}</p>
               <p className="text-sm text-gray-500">
                 Posted on: {new Date(review.created_at).toLocaleString()}

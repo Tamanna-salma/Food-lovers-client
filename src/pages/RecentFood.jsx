@@ -2,9 +2,10 @@ import React, { use } from 'react'
 import Food from './Food';
 import { Link } from 'react-router';
 import { MdOutlineShowChart } from "react-icons/md";
+
 const RecentFood = ({recentFoodspromise}) => {
     const foods=use(recentFoodspromise);
-    console.log(foods);
+    // console.log(foods);
   return (
     <div className=" mx-auto px-4 mt-7 mb-6">
          <h2 className='font-bold text-xl lg:text-2xl text-center'>Featured <span className='font-bold text-xl lg:text-4xl text-green-600'>Reviews</span></h2>

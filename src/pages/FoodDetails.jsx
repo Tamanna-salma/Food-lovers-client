@@ -3,7 +3,6 @@ import React, { useContext, useState } from "react";
 import { AuthContext } from "../AuthContexts/AuthProvider";
 import { FaHeart, FaRegHeart } from "react-icons/fa";
 import { useLoaderData } from "react-router";
-import Loading from "./Loading";
 
 const FoodDetails = () => {
   const food = useLoaderData();
@@ -14,7 +13,7 @@ const FoodDetails = () => {
   if (!food || loading) {
     return (
       <div className="flex justify-center mt-20">
-    {/* <Loading></Loading> */}
+    
       </div>
     );
   }
@@ -47,7 +46,7 @@ const FoodDetails = () => {
     };
 
     try {
-      const response = await fetch("http://localhost:3000/favorites", {
+      const response = await fetch("http://localhost:3000/favourites", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -100,7 +99,7 @@ const FoodDetails = () => {
 
       </div>
       {review && (
-        <p className="mt-4 text-gray-700 border-t pt-2 italic">“{review}”</p>
+        <p className="mt-4 text-gray-700 border-t pt-2 italic">{review}</p>
       )}
     </div>
   );

@@ -57,7 +57,7 @@ const AllReviews = () => {
         </div>
       ) : (
         
-        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-5 mt-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-4 mt-6">
           {review.map((food) => (
             <Food key={food._id} food={food}></Food>
           ))}
