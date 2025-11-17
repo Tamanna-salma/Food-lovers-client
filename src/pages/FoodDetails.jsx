@@ -46,7 +46,7 @@ const FoodDetails = () => {
     };
 
     try {
-      const response = await fetch("http://localhost:3000/favourites", {
+      const response = await fetch("https://food-lovers-server-blond.vercel.app/favourites", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

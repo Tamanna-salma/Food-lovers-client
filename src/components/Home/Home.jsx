@@ -6,7 +6,7 @@ import Helpfull from '../../pages/Helpfull'
 import FoodDetails from '../../pages/FoodDetails'
 import Group from '../../pages/Group'
 
-const recentFoodspromise=fetch('http://localhost:3000/recentFood')
+const recentFoodspromise=fetch('https://food-lovers-server-blond.vercel.app/recentFood')
 .then(res=>res.json())
 
 const Home = () => {

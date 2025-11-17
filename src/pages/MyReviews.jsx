@@ -15,7 +15,7 @@ const MyReviews = () => {
     if (!user?.email) return;
 
     setLoading(true);
-    fetch('http://localhost:3000/foods')
+    fetch('https://food-lovers-server-blond.vercel.app/foods')
       .then((res) => res.json())
       .then((data) => {
         const reviews = data.filter((review) => review?.email === user?.email);
@@ -37,7 +37,7 @@ const MyReviews = () => {
       confirmButtonText: 'Confirm!',
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:3000/foods/${id}`, { method: 'DELETE' })
+        fetch(`https://food-lovers-server-blond.vercel.app/foods/${id}`, { method: 'DELETE' })
           .then((res) => res.json())
           .then((data) => {
             if (data.deletedCount > 0) {
@@ -66,7 +66,7 @@ const MyReviews = () => {
 
   const handleEditSubmit = async (e, id) => {
     e.preventDefault();
-    const res = await fetch(`http://localhost:3000/foods/${id}`, {
+    const res = await fetch(`https://food-lovers-server-blond.vercel.app/foods/${id}`, {
       method: 'PATCH',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(editData),

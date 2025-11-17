@@ -22,7 +22,7 @@ const Food = ({ food }) => {
   useEffect(() => {
     if (!user?.email) return;
 
-    fetch("http://localhost:3000/favourites?email=${user.email")
+    fetch("https://food-lovers-server-blond.vercel.app/favourites?email=${user.email")
       .then((res) => res.json())
       .then((data) => {
         const alreadyFav = data.find((fav) => fav.food_id === _id);
@@ -54,7 +54,7 @@ const Food = ({ food }) => {
     };
 
     try {
-      const response = await fetch("http://localhost:3000/favourites", {
+      const response = await fetch("https://food-lovers-server-blond.vercel.app/favourites", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

@@ -12,7 +12,7 @@ const AllReviews = () => {
       try {
         setLoading(true);
         const query = search ? `?food_name=${search}` : "";
-        const response = await fetch(`http://localhost:3000/foods${query}`);
+        const response = await fetch(`https://food-lovers-server-blond.vercel.app/foods${query}`);
         const data = await response.json();
         setReview(data);
       } catch (error) {

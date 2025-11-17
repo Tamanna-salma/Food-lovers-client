@@ -12,7 +12,7 @@ const MyFavourites = () => {
 
   useEffect(() => {
     if (user?.email) {
-      fetch(`http://localhost:3000/favourites?email=${user.email}`)
+      fetch(`https://food-lovers-server-blond.vercel.app/favourites?email=${user.email}`)
         .then((res) => res.json())
         .then((data) => setFavourites(data))
         .finally(() => setLoading(false));
@@ -30,7 +30,7 @@ const MyFavourites = () => {
       confirmButtonText: "Yes, delete it!"
     }).then(async (result) => {
       if (result.isConfirmed) {
-        const res = await fetch(`http://localhost:3000/favourites/${id}`, {
+        const res = await fetch(`https://food-lovers-server-blond.vercel.app/favourites/${id}`, {
           method: "DELETE",
         });
 

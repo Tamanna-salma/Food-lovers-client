@@ -7,7 +7,7 @@ const Recipes = () => {
 
   useEffect(() => {
     setLoading(true);
-    fetch("http://localhost:3000/recipe")
+    fetch("https://food-lovers-server-blond.vercel.app/recipe")
       .then((res) => res.json())
       .then((data) => {
         setRecipes(data);

@@ -78,7 +78,7 @@ console.log("Form is valid:", { name, email, photo, password, confirmPassword })
 
         //create users
 
-        fetch('http://localhost:3000/users',{
+        fetch('https://food-lovers-server-blond.vercel.app/users',{
           method:'POST',
           headers:{
            ' content-type':'application/json'

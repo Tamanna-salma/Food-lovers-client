@@ -27,7 +27,7 @@ const AddReview = () => {
       reviewer_name: user?.displayName
     }
 
-    fetch('http://localhost:3000/foods', {
+    fetch('https://food-lovers-server-blond.vercel.app/foods', {
       method: 'POST',
       headers: {
         'content-type': 'application/json'
