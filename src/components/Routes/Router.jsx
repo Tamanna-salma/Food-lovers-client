@@ -12,6 +12,7 @@ import Recipes from "../../pages/Recipes";
 import Error from "../../pages/Error";
 import MyFavourites from "../../pages/MyFavourites";
 import PrivateRoute from "../../AuthContexts/PrivateRoute";
+import MyProfile from "../../pages/MyProfile";
 
 const router = createBrowserRouter([
   {
@@ -40,6 +41,12 @@ const router = createBrowserRouter([
         path:"/myreview",
         element:<PrivateRoute>
           <MyReviews></MyReviews>
+        </PrivateRoute>
+       },
+       {
+        path:"/myprofile",
+        element:<PrivateRoute>
+          <MyProfile></MyProfile>
         </PrivateRoute>
        },
        {

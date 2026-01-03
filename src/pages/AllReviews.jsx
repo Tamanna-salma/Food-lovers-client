@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Food from "./Food";
 import Loading from "./Loading";
-import match from '../assets/match.jpeg'
+import match from '../assets/match.jpeg';
 const AllReviews = () => {
   const [review, setReview] = useState([]);
   const [search, setSearch] = useState("");

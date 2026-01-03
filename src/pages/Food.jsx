@@ -6,7 +6,6 @@ import { toast } from "react-toastify";
 
 const Food = ({ food }) => {
   const { user } = useContext(AuthContext);
-
   const [isFavorite, setIsFavorite] = useState(false);
 
   const {
@@ -21,8 +20,8 @@ const Food = ({ food }) => {
 
   useEffect(() => {
     if (!user?.email) return;
-
-    fetch("https://food-lovers-server-blond.vercel.app/favourites?email=${user.email")
+    
+    fetch(`https://food-lovers-server-blond.vercel.app/favourites?email=${user.email}`)
       .then((res) => res.json())
       .then((data) => {
         const alreadyFav = data.find((fav) => fav.food_id === _id);
@@ -35,7 +34,6 @@ const Food = ({ food }) => {
       toast.error("Please login to add favourites!");
       return;
     }
-
     if (isFavorite) {
       toast.warning("Already in favourites!");
       return;
@@ -56,14 +54,10 @@ const Food = ({ food }) => {
     try {
       const response = await fetch("https://food-lovers-server-blond.vercel.app/favourites", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(favouriteData),
       });
-
       const data = await response.json();
-
       if (data.insertedId) {
         setIsFavorite(true);
         toast.success("Added to favourites!");
@@ -74,50 +68,56 @@ const Food = ({ food }) => {
   };
 
   return (
-    <div className="mx-auto px-4">
-      <div className="rounded-2xl px-3 py-3 w-full lg:w-96 shadow-md bg-white hover:shadow-lg overflow-hidden">
+   
+    <div className="w-full h-full">
+      <div className="flex flex-col h-full rounded-2xl p-3 shadow-md bg-gray-200 hover:shadow-lg transition-all duration-300">
         
-        <img
-          src={photo}
-          alt=""
-          className=" w-full lg:w-96 h-48 object-cover rounded-xl"
-        />
-
-        <div className="p-4 space-y-2">
+        {/* Image  */}
+        <div className="relative">
+          <img
+            src={photo}
+            alt={food_name}
+            className="w-full h-52 object-cover rounded-xl"
+          />
           
-          <div className="flex justify-between">
-            <h3 className="text-sm lg:text-lg font-bold text-orange-500">
+        </div>
+
+
+        <div className="flex flex-col flex-grow p-4 space-y-3">
+          
+          <div className="flex justify-between items-start gap-2">
+            <h3 className="text-lg font-bold text-orange-600 line-clamp-1">
               {food_name}
             </h3>
-
-             {/* Heart Button  */}
             <button
               onClick={toggleFavorite}
-              className="text-2xl p-1 focus:outline-none"
+              className="text-2xl focus:outline-none transition-transform active:scale-90"
             >
               {isFavorite ? (
                 <FaHeart className="text-red-600" />
               ) : (
-                <FaRegHeart className="text-red-500" />
+                <FaRegHeart className="text-red-500 hover:scale-110" />
               )}
             </button>
           </div>
 
-          <div className="flex justify-between items-center text-sm lg:text-lg mb-4">
-            <span className="font-medium">{restaurant_name}</span>
-            <span className="text-indigo-600 font-semibold">
-              {restaurant_location}
-            </span>
-          </div>
+          <div className="space-y-1 flex-grow">
+            <div className="flex justify-between items-center text-sm">
+              <span className="font-semibold text-gray-700">{restaurant_name}</span>
+              <span className="text-indigo-600 font-medium">{restaurant_location}</span>
+            </div>
 
-          <div className="flex justify-between">
-            <span className="font-medium">{reviewer_name}</span>
-            <span className="text-orange-500 font-medium">⭐ {rating}</span>
+            <div className="flex justify-between items-center text-sm pt-2">
+              <span className="text-gray-600 italic">By: {reviewer_name}</span>
+              <span className="text-orange-500 font-bold flex items-center gap-1">
+                ⭐ {rating}
+              </span>
+            </div>
           </div>
 
           <Link
             to={`/fooddetails/${_id}`}
-            className="w-full mt-3 p-3 rounded-lg bg-green-800 hover:bg-green-600 text-white transition block text-center font-medium"
+            className="w-full py-2.5 rounded-lg bg-green-800 hover:bg-green-700 text-white transition-colors block text-center font-semibold"
           >
             View Details
           </Link>

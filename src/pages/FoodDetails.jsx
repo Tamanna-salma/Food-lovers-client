@@ -68,11 +68,11 @@ const FoodDetails = () => {
   };
 
   return (
-    <div className="w-96 mx-auto mb-6 mt-10 p-4 shadow-lg rounded-2xl bg-white hover:shadow-xl transition">
+    <div className=" w-full lg:w-96 px-6 mx-auto mb-6 mt-10 p-4 shadow-lg rounded-2xl bg-white hover:shadow-xl transition">
       <img
         src={photo}
         alt={food_name}
-        className="rounded-lg w-full h-64 object-cover"
+        className="rounded-lg w-full lg:w-96 h-60  lg:h-64 object-cover"
       />
 
       <div className="flex justify-between items-center mt-4">

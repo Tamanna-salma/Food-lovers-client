@@ -1,29 +1,41 @@
-import React, { use } from 'react'
+import React, { use } from 'react';
 import Food from './Food';
 import { Link } from 'react-router';
 import { MdOutlineShowChart } from "react-icons/md";
 
-const RecentFood = ({recentFoodspromise}) => {
-    const foods=use(recentFoodspromise);
-    // console.log(foods);
-  return (
-    <div className=" mx-auto px-4 mt-7 mb-6">
-         <h2 className='font-bold text-xl lg:text-2xl text-center'>Featured <span className='font-bold text-xl lg:text-4xl text-green-600'>Reviews</span></h2>
-       <div className='grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 space-x-3 space-y-4 lg:space-y-5  mt-6'>
-         {
-         foods.map(food=> <Food key={food._id}
-            food={food}
-            ></Food>)
-        }
-        
-       </div>
-        <div className='text-center mt-4'>
-        
-        <Link to="/allreviews" className='p-6 py-7 ounded-lg font-medium text-xl btn bg-green-800 hover:bg-green-600 text-white'><MdOutlineShowChart /> Show All</Link>
-      
-       </div>
-    </div>
-  )
-}
+const RecentFood = ({ recentFoodspromise }) => {
+  const foods = use(recentFoodspromise);
 
-export default RecentFood
+  return (
+    <div className="mx-auto max-w-7xl px-4 mt-12 mb-12">
+      {/* Title Section */}
+      <div className="text-center mb-10">
+        <h2 className="font-bold text-2xl lg:text-4xl">
+          Featured <span className="text-green-600">Reviews</span>
+        </h2>
+        <p className="text-gray-500 mt-2">Explore our most recent food experiences</p>
+      </div>
+
+      <div className="grid grid-cols-1  md:grid-cols-4 lg:grid-cols-4 gap-6">
+        {foods.map((food) => (
+          <div key={food._id} className="h-full">
+            <Food food={food} />
+          </div>
+        ))}
+      </div>
+
+      {/* Show All Button */}
+      <div className="text-center mt-12">
+        <Link 
+          to="/allreviews" 
+          className="inline-flex items-center gap-2 px-8 py-3 rounded-xl font-bold text-lg bg-green-800 hover:bg-green-700 text-white transition-all duration-300 shadow-lg hover:shadow-green-900/20"
+        >
+          <MdOutlineShowChart className="text-2xl" /> 
+          Show All Reviews
+        </Link>
+      </div>
+    </div>
+  );
+};
+
+export default RecentFood;

@@ -1,6 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import { FaTrashAlt } from "react-icons/fa";
-import { toast } from "react-toastify";
+import { FaTrashAlt } from "react-icons/fa"; 
 import Loading from "./Loading";
 import { AuthContext } from "../AuthContexts/AuthProvider";
 import Swal from "sweetalert2";
@@ -59,7 +58,7 @@ const MyFavourites = () => {
 
   return (
     <div className="max-w-6xl mx-auto px-10 py-10">
-      <h2 className="text-3xl font-bold text-center mb-6">My Favourites</h2>
+      <h2 className=" text-xl lg:text-3xl font-bold text-center mb-6">My Favourites</h2>
 
       {favourites.length === 0 ? (
         <p className="text-center text-gray-500">No favourites yet.</p>
@@ -73,7 +72,7 @@ const MyFavourites = () => {
               <img
                 src={fav.photo}
                 alt={fav.food_name}
-                className="w-full h-44 object-cover rounded-lg mb-3"
+                className="w-full lg:w-96 h-48 object-cover rounded-lg mb-3"
               />
 
               <h3 className="text-lg font-semibold mb-1">{fav.food_name}</h3>

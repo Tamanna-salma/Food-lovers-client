@@ -101,7 +101,7 @@ console.log("Form is valid:", { name, email, photo, password, confirmPassword })
       })
   };
   return (
-    <div className='relative  py-18'>
+    <div className='relative py-18'>
       <title>Register</title>
       <div className='flex justify-center items-center min-h-fit'>
         <div className="card bg-base-200 w-full max-w-sm shrink-0 shadow-2xl py-5">
@@ -159,4 +159,8 @@ console.log("Form is valid:", { name, email, photo, password, confirmPassword })
   )
 }
 
-export default Register
+export default Register;
+
+
+
+
