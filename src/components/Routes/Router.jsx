@@ -13,6 +13,7 @@ import Error from "../../pages/Error";
 import MyFavourites from "../../pages/MyFavourites";
 import PrivateRoute from "../../AuthContexts/PrivateRoute";
 import MyProfile from "../../pages/MyProfile";
+import MyFollowers from "../../pages/MyFollowers";
 
 const router = createBrowserRouter([
   {
@@ -30,6 +31,11 @@ const router = createBrowserRouter([
         element:<PrivateRoute>
           <AddReview></AddReview>
         </PrivateRoute>
+       },
+       {
+        path:"/my-followers",
+        element:<MyFollowers></MyFollowers>
+
        },
        {
         path: "/myFavourites",

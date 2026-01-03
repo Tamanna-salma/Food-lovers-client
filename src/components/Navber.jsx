@@ -57,6 +57,18 @@ const Navbar = () => {
         </NavLink>
       </li>
       <li>
+  <NavLink
+    to="/my-followers"
+    className={({ isActive }) =>
+      isActive
+        ? "text-purple-600 border-b-2 border-purple-600 text-lg font-semibold px-2"
+        : "text-gray-600 text-lg font-semibold hover:text-purple-600 px-2"
+    }
+  >
+    Followers
+  </NavLink>
+</li>
+      <li>
         <NavLink
           to="/dashboard"
           className={({ isActive }) =>
@@ -73,9 +85,10 @@ const Navbar = () => {
 
   return (
     <div className="bg-gray-200 shadow-sm sticky top-0 z-50">
+     
       <div className="navbar max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2">
         
-        
+     
         <div className="navbar-start">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden p-0 mr-2">
@@ -117,7 +130,6 @@ const Navbar = () => {
           </ul>
         </div>
 
-        
         <div className="navbar-end gap-2 md:gap-4">
           {user ? (
             <div className="dropdown dropdown-end">
