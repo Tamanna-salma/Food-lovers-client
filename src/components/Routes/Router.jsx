@@ -14,6 +14,7 @@ import MyFavourites from "../../pages/MyFavourites";
 import PrivateRoute from "../../AuthContexts/PrivateRoute";
 import MyProfile from "../../pages/MyProfile";
 import MyFollowers from "../../pages/MyFollowers";
+import About from "../../pages/About";
 
 const router = createBrowserRouter([
   {
@@ -36,6 +37,10 @@ const router = createBrowserRouter([
         path:"/my-followers",
         element:<MyFollowers></MyFollowers>
 
+       },
+       {
+        path:"about",
+        element:<About></About>
        },
        {
         path: "/myFavourites",
