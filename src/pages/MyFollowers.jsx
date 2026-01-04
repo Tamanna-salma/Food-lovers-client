@@ -76,6 +76,8 @@ const MyFollowers = () => {
                     This list shows people who are currently following you.
                 </p>
             </div>
+
+            
         </div>
     );
 };

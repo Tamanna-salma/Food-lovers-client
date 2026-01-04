@@ -7,6 +7,9 @@ import FoodDetails from '../../pages/FoodDetails'
 import Group from '../../pages/Group'
 import Followers from '../../pages/Followers'
 import Stats from '../../pages/Stats'
+import Featured from '../../pages/Featured'
+import Categories from '../../pages/Categories'
+import Gallery from '../../pages/Gallery'
 
 const recentFoodspromise=fetch('https://food-lovers-server-blond.vercel.app/recentFood')
 .then(res=>res.json())
@@ -24,6 +27,9 @@ const Home = () => {
       <Group></Group>
       <Followers></Followers>
       <Stats></Stats>
+      <Featured></Featured>
+      <Categories></Categories>
+      <Gallery></Gallery>
     </div>
   )
 }

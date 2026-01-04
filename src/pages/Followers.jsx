@@ -62,7 +62,7 @@ console.log("Server response:", res.data);
       
     <div className="grid grid-cols-1  lg:grid-cols-4 gap-6">
   {allUsers.filter(u => u.email !== user?.email).map((u) => (
-  <div key={u._id} className="bg-white border border-gray-100 rounded-2xl p-4 shadow-sm hover:shadow-md transition text-center flex flex-col justify-between">
+  <div key={u._id} className="bg-gray-200 border border-gray-100 rounded-2xl p-4 shadow-sm hover:shadow-md transition text-center flex flex-col justify-between">
     <div>
       <img 
         src={u.image || "https://i.ibb.co/31S946M/user.png"} 
