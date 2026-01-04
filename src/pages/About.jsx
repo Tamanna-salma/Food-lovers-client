@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import Service from "./Service";
+import { Link } from "react-router";
 
 const About = () => {
   return (
@@ -27,9 +28,9 @@ const About = () => {
             We ensure every craving is satisfied with reliable reviews, detailed ratings, and 
             a shared passion for great taste.
           </p>
-          <button className="bg-purple-600 text-white px-8 py-3 rounded-xl font-bold hover:bg-purple-800 transition-all shadow-lg hover:shadow-purple-200">
+          <Link to="/contact" className="bg-purple-600 text-white px-8 py-3 rounded-xl font-bold hover:bg-purple-800 transition-all shadow-lg hover:shadow-purple-200">
             Explore Menu
-          </button>
+          </Link>
         </motion.div>
 
         {/* Image Content */}
