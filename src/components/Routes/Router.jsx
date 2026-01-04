@@ -15,6 +15,8 @@ import PrivateRoute from "../../AuthContexts/PrivateRoute";
 import MyProfile from "../../pages/MyProfile";
 import MyFollowers from "../../pages/MyFollowers";
 import About from "../../pages/About";
+import ContactMe from "../../pages/ContactMe";
+import Blog from "../../pages/Blog";
 
 const router = createBrowserRouter([
   {
@@ -41,6 +43,15 @@ const router = createBrowserRouter([
        {
         path:"about",
         element:<About></About>
+       },
+       {
+        path:"blog",
+        element:<Blog></Blog>
+
+       },
+       {
+        path:"contact",
+        element:<ContactMe></ContactMe>
        },
        {
         path: "/myFavourites",

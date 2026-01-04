@@ -69,6 +69,30 @@ const Navbar = () => {
         </NavLink>
       </li>
       <li>
+        <NavLink
+          to="/contact"
+          className={({ isActive }) =>
+            isActive
+              ? "text-purple-600 border-b-2 border-purple-600 text-lg font-semibold px-2"
+              : "text-gray-600 text-lg font-semibold hover:text-purple-600 px-2"
+          }
+        >
+         Contact Us
+        </NavLink>
+      </li>
+      <li>
+        <NavLink
+          to="/blog"
+          className={({ isActive }) =>
+            isActive
+              ? "text-purple-600 border-b-2 border-purple-600 text-lg font-semibold px-2"
+              : "text-gray-600 text-lg font-semibold hover:text-purple-600 px-2"
+          }
+        >
+         Blog
+        </NavLink>
+      </li>
+      <li>
   <NavLink
     to="/my-followers"
     className={({ isActive }) =>
