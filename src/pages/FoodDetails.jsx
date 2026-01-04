@@ -1,8 +1,10 @@
 import React, { useContext, useState } from "react";
-
 import { AuthContext } from "../AuthContexts/AuthProvider";
 import { FaHeart, FaRegHeart } from "react-icons/fa";
 import { useLoaderData } from "react-router";
+import { toast } from "react-toastify";
+
+const API_URL = "https://food-lovers-server-3uh2j2e98-salmas-projects-44d38334.vercel.app";
 
 const FoodDetails = () => {
   const food = useLoaderData();
@@ -10,13 +12,7 @@ const FoodDetails = () => {
   const [isFavorite, setIsFavorite] = useState(false);
   const [loading, setLoading] = useState(false);
 
-  if (!food || loading) {
-    return (
-      <div className="flex justify-center mt-20">
-    
-      </div>
-    );
-  }
+  if (!food) return null;
 
   const {
     _id,
@@ -30,54 +26,55 @@ const FoodDetails = () => {
   } = food;
 
   const toggleFavorite = async () => {
-    setIsFavorite(true);
+    if (!user?.email) {
+      toast.error("Please login first!");
+      return;
+    }
+
+    if (isFavorite) {
+      toast.info("Already in favourites ❤️");
+      return;
+    }
+
     setLoading(true);
 
-    const favorite = {
-      food_id: _id,
-      food_name,
-      restaurant_name,
-      restaurant_location,
-      reviewer_name,
-      rating,
-      photo,
-      email: user?.email,
-      added_at: new Date(),
-    };
-
     try {
-      const response = await fetch("https://food-lovers-server-blond.vercel.app/favourites", {
+      const res = await fetch(`${API_URL}/favourites`, {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(favorite),
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          food_id: _id,
+          food_name,
+          restaurant_name,
+          restaurant_location,
+          reviewer_name,
+          rating,
+          photo,
+          email: user.email,
+        }),
       });
 
-      const data = await response.json();
+      const data = await res.json();
+
       if (data.insertedId) {
-        console.log(" Food added to favourites:", data);
-      } else {
-        console.log(" Error adding to favourites");
+        setIsFavorite(true);
+        toast.success("Added to favourites!");
       }
-    } catch (error) {
-      console.error(" Error adding to favourites:", error);
+    } catch {
+      toast.error("Failed to add favourite");
     } finally {
       setLoading(false);
     }
   };
 
   return (
-    <div className=" w-full lg:w-96 px-6 mx-auto mb-6 mt-10 p-4 shadow-lg rounded-2xl bg-white hover:shadow-xl transition">
-      <img
-        src={photo}
-        alt={food_name}
-        className="rounded-lg w-full lg:w-96 h-60  lg:h-64 object-cover"
-      />
+    <div className="w-full lg:w-96 mx-auto mt-10 p-4 shadow-lg rounded-2xl bg-white">
+      <img src={photo} alt={food_name} className="rounded-lg w-full h-60 object-cover" />
 
       <div className="flex justify-between items-center mt-4">
         <h2 className="text-2xl font-bold text-orange-500">{food_name}</h2>
-        <button onClick={toggleFavorite} className="text-2xl">
+
+        <button onClick={toggleFavorite} disabled={loading} className="text-2xl">
           {isFavorite ? (
             <FaHeart className="text-red-500" />
           ) : (
@@ -90,17 +87,12 @@ const FoodDetails = () => {
         {restaurant_name} — {restaurant_location}
       </p>
 
-      <div className="flex justify-between">
-        <p className="mt-3 text-gray-600">
-        Reviewed by: <span className="font-medium">{reviewer_name}</span>
-      </p>
-
-      <p className="text-orange-500 font-semibold mt-2">⭐ {rating}</p>
-
+      <div className="flex justify-between mt-2">
+        <p className="italic text-gray-600">By {reviewer_name}</p>
+        <p className="text-orange-500 font-semibold">⭐ {rating}</p>
       </div>
-      {review && (
-        <p className="mt-4 text-gray-700 border-t pt-2 italic">{review}</p>
-      )}
+
+      {review && <p className="mt-4 border-t pt-2 italic">{review}</p>}
     </div>
   );
 };

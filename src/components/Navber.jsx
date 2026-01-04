@@ -158,6 +158,7 @@ const Navbar = () => {
                 <li><NavLink to="/myreview">My Reviews</NavLink></li>
                 <li><NavLink to="/myFavourites">My Favourites</NavLink></li>
                 <li><NavLink to="/myprofile">My Profile</NavLink></li>
+                 <li><NavLink to="/my-followers">Followers</NavLink></li>
                 <li className="mt-2 pt-2 border-t">
                   <button
                     onClick={handleLogout}
