@@ -1,2 +1,16 @@
 @import "tailwindcss";
 @plugin "daisyui";
+
+/* Tailwind v4 এ ডার্ক মোড চেনার নিয়ম */
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+/* যখন data-theme="dark" হবে তখন কি কালার হবে */
+[data-theme="dark"] {
+  --background: #0a0a0a;
+  --foreground: #ededed;
+}

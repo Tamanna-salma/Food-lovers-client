@@ -11,6 +11,7 @@ import Featured from '../../pages/Featured'
 import Categories from '../../pages/Categories'
 import Gallery from '../../pages/Gallery'
 import Service from '../../pages/Service'
+import HowItWorks from '../../pages/HowItWorks'
 
 const recentFoodspromise=fetch('https://food-lovers-server-blond.vercel.app/recentFood')
 .then(res=>res.json())
@@ -32,6 +33,7 @@ const Home = () => {
       <Categories></Categories>
       <Gallery></Gallery>
       <Service></Service>
+      <HowItWorks></HowItWorks>
     </div>
   )
 }

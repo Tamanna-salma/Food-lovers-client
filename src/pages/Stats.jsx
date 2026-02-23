@@ -12,7 +12,7 @@ const stats = [
 const Stats = () => {
   return (
     
-    <section className="py-16 max-w-7xl mx-auto px-4 bg-gradient-to-r from-purple-600 to-indigo-600 mt-8 mb-8 text-white overflow-hidden shadow-2xl rounded-[2rem] ">
+    <section className="py-16 max-w-6xl mx-auto px-4 bg-gradient-to-r from-purple-600 to-indigo-600 mt-8 mb-8 text-white overflow-hidden shadow-2xl rounded-[2rem] ">
       
       <div className="text-center mb-10 px-4">
         <h2 className="text-xl md:text-4xl font-extrabold tracking-tight">
@@ -28,8 +28,7 @@ const Stats = () => {
         <motion.div
           className="flex gap-20 whitespace-nowrap py-4"
           animate={{ x: ["0%", "-50%"] }} 
-          transition={{ repeat: Infinity, duration: 20, ease: "linear" }}
-        >
+          transition={{ repeat: Infinity, duration: 20, ease: "linear" }}>
         
           {[...stats, ...stats].map((item, i) => (
             <div

@@ -3,7 +3,7 @@ import { Link } from 'react-router'
 
 const Featured = () => {
   return (
-    <div className='mx-auto max-w-7xl px-4'>
+    <div className='mx-auto max-w-6xl px-4'>
         <h2 className='text-xl lg:text-3xl font-bold text-center mt-8 mb-8 text-green-600'>Featured section</h2>
         <div className="bg-gray-50 rounded-[3rem] p-8 md:p-8 flex flex-col md:flex-row items-center gap-10 my-20">
     <div className="w-full md:w-1/2 relative">
@@ -16,13 +16,13 @@ const Featured = () => {
     </div>
     <div className="w-full md:w-1/2">
         <span className="bg-purple-600 text-white px-4 py-1 rounded-full text-sm font-bold tracking-widest uppercase">Featured Chef</span>
-        <h2 className="text-4xl font-extrabold text-gray-800 mt-6 mb-4">Mastering the Art of <span className="text-purple-600">Italian Cuisine</span></h2>
-        <p className="text-gray-600 text-lg leading-relaxed mb-8">
+        <h2 className="text-xl lg:text-4xl font-extrabold text-gray-800 mt-6 mb-4">Mastering the Art of <span className="text-purple-600">Italian Cuisine</span></h2>
+        <p className="text-gray-600 text-sm lg:text-lg leading-relaxed mb-8">
             Meet Chef Antonio, who has shared over 200 authentic pasta recipes with our community this month. Follow him to get exclusive tips on making the perfect hand-made dough.
         </p>
         <div className="flex gap-4">
-            <Link to="/recipes" className="bg-gray-800 text-white px-8 py-3 rounded-2xl font-bold hover:bg-black transition shadow-lg">View Recipes</Link>
-            <button className="border-2 border-purple-600 text-purple-600 px-8 py-3 rounded-2xl font-bold hover:bg-purple-50 transition">Follow Chef</button>
+            <Link to="/recipes" className="bg-gray-800 text-white px-4 lg:px-8 py-3 rounded-2xl font-bold hover:bg-black transition shadow-lg">View Recipes</Link>
+            <button className="border-2 border-purple-600 text-purple-600 px-4 lg:px-8 py-3 rounded-2xl font-bold hover:bg-purple-50 transition">Follow Chef</button>
         </div>
     </div>
 </div>
@@ -33,8 +33,8 @@ const Featured = () => {
     <div className="absolute bottom-0 left-0 -ml-20 -mb-20 w-48 h-48 bg-purple-400 opacity-20 rounded-full"></div>
 
     <div className="relative z-10">
-        <h2 className="text-3xl md:text-4xl font-bold mb-4">Never Miss a Delicious Update!</h2>
-        <p className="text-purple-100 mb-8 max-w-xl mx-auto">Join 10,000+ food lovers and get the best recipes and kitchen hacks delivered straight to your inbox.</p>
+        <h2 className="text-xl lg:text-4xl  font-bold mb-4">Never Miss a Delicious Update!</h2>
+        <p className="text-purple-100 mb-8 w-full lg:max-w-xl mx-auto">Join 10,000+ food lovers and get the best recipes and kitchen hacks delivered straight to your inbox.</p>
         
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <input 

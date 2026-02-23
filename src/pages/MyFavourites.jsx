@@ -67,7 +67,7 @@ const MyFavourites = () => {
           {favourites.map((fav) => (
             <div
               key={fav._id}
-              className="bg-gray-200 rounded-xl shadow-md hover:shadow-lg p-4"
+              className="bg-base-200 dark:bg-base-900 rounded-xl shadow-md hover:shadow-lg p-4"
             >
               <img
                 src={fav.photo}

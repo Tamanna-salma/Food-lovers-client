@@ -55,8 +55,8 @@ console.log("Server response:", res.data);
   if (isLoading) return <Loading />;
 
   return (
-    <div className="max-w-7xl mx-auto px-4 my-12">
-      <h2 className=" text-xl lg:text-2xl font-bold mb-8 text-center ">
+    <div className="max-w-6xl mx-auto px-4 my-12">
+      <h2 className=" text-xl lg:text-2xl font-bold mb-8 text-center text-black">
         People You May <span className="text-purple-600">Follow</span>
       </h2>
       

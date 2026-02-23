@@ -2,7 +2,7 @@ import React from 'react'
 
 const Categories = () => {
   return (
-    <div className='max-w-7xl mx-auto px-4'>
+    <div className='max-w-6xl mx-auto px-4'>
         <div className="my-20">
     <div className="flex flex-col md:flex-row justify-between items-end mb-10">
         <div className='text-center mx-auto'>

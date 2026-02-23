@@ -1,7 +1,7 @@
 import { createBrowserRouter } from "react-router";
 import RootLayout from "../RootLayout.jsx/RootLayout";
 import Home from "../Home/Home";
-import  Login  from "../../pages/Login";
+import Login from "../../pages/Login";
 import Register from "../../pages/Register";
 import { AuthLayout } from "../AuthLayout/AuthLayout";
 import AddReview from "../../pages/AddReview";
@@ -17,95 +17,77 @@ import MyFollowers from "../../pages/MyFollowers";
 import About from "../../pages/About";
 import ContactMe from "../../pages/ContactMe";
 import Blog from "../../pages/Blog";
-
+import DashboardHome from "../Dashboard/DashboardHome";
+import Dashboard from "../Dashboard/Dashboard";
 const router = createBrowserRouter([
+  
   {
     path: "/",
-    element: <RootLayout></RootLayout>,
-    children:[
-        {
-            index: true,
-            element:<Home></Home>,
-            
-        },
-        
-       {
-        path:"/addReview",
-        element:<PrivateRoute>
-          <AddReview></AddReview>
-        </PrivateRoute>
-       },
-       {
-        path:"/my-followers",
-        element:<MyFollowers></MyFollowers>
-
-       },
-       {
-        path:"about",
-        element:<About></About>
-       },
-       {
-        path:"blog",
-        element:<Blog></Blog>
-
-       },
-       {
-        path:"contact",
-        element:<ContactMe></ContactMe>
-       },
-       {
-        path: "/myFavourites",
-        element: <PrivateRoute>
-          <MyFavourites></MyFavourites>
-        </PrivateRoute>
-       },
-       {
-        path:"/myreview",
-        element:<PrivateRoute>
-          <MyReviews></MyReviews>
-        </PrivateRoute>
-       },
-       {
-        path:"/myprofile",
-        element:<PrivateRoute>
-          <MyProfile></MyProfile>
-        </PrivateRoute>
-       },
-       {
-        path:"/allreviews",
-        element:<AllReviews></AllReviews>
-       },
-       
-        {
-          path:"/fooddetails/:id",
-          loader:({params})=>fetch(`https://food-lovers-server-blond.vercel.app/foods/${params.id}`),
-          element:<FoodDetails></FoodDetails>
-        },
-        {
-          path:"/recipes",
-          element:<Recipes></Recipes>
-        }
-    ]
-  },
-  {
-    path:"/auth",
-    element:<AuthLayout></AuthLayout>,
-    children:[
+    element: <RootLayout />,
+    children: [
+      { index: true, element: <Home /> },
+      { path: "allreviews", element: <AllReviews /> },
+      { path: "recipes", element: <Recipes /> },
+      { path: "about", element: <About /> },
+      { path: "blog", element: <Blog /> },
+      { path: "contact", element: <ContactMe /> },
       {
-            path:'/auth/register',
-            element:<Register></Register>
-        },
-        {
-          path:"/auth/login",
-          element:<Login></Login>
+        path: "fooddetails/:id",
+        loader: ({ params }) => fetch(`https://food-lovers-server-blond.vercel.app/foods/${params.id}`),
+        element: <FoodDetails />,
+      },
+    ],
+  },
 
-        }, 
-    ]
-  
+  //  (Role-Based & Private)
+  {
+    path: "dashboard",
+    element: (
+      <PrivateRoute>
+     <Dashboard></Dashboard>
+      </PrivateRoute>
+    ),
+    children: [
+      {
+        index: true, 
+        element:<DashboardHome></DashboardHome>
+      },
+      {
+        path: "my-profile",
+        element: <MyProfile />,
+      },
+      {
+        path: "add-review",
+        element: <AddReview />,
+      },
+      {
+        path: "my-reviews",
+        element: <MyReviews />,
+      },
+      {
+        path: "my-favourites",
+        element: <MyFavourites />,
+      },
+      {
+        path: "my-followers",
+        element: <MyFollowers />,
+      },
+    ],
+  },
+
+
+  {
+    path: "auth",
+    element: <AuthLayout />,
+    children: [
+      { path: "register", element: <Register /> },
+      { path: "login", element: <Login /> },
+    ],
   },
   {
-          path:"/*",
-          element:<Error></Error>
-        }
+    path: "*",
+    element: <Error />,
+  },
 ]);
-export default router
+
+export default router;

@@ -26,9 +26,9 @@ const Footer = () => {
       <div>
         <nav className="flex items-center justify-center text-black text-xl font-bold py-3 gap-3 md:gap-4 ">
 
-          <a className="link link-hover">About</a>
-          <a className="link link-hover">Contact</a>
-          <a className="link link-hover">Jobs</a>
+          <Link to="/about" className="link link-hover">About</Link>
+          <Link to="/contact" className="link link-hover">Contact</Link>
+          <Link to="/blog" className="link link-hover">Blog</Link>
 
 
         </nav>

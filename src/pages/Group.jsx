@@ -6,7 +6,7 @@ const Group = () => {
   return (
     <div>
           <h2 className='text-center text-sm lg:text-3xl font-bold'>Group Volunteering </h2>
-      <div className="space-y-5 lg:space-y-8 max-w-7xl mx-auto lg:px-6 mt-2 lg:mt-5 mb-5">
+      <div className="space-y-5 lg:space-y-8 max-w-6xl mx-auto lg:px-6 mt-2 lg:mt-5 mb-5">
         
   
         <div className="grid md:grid-cols-2 items-center gap-8 bg-gray-50 p-6 rounded-2xl shadow">
