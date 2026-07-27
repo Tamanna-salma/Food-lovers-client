@@ -1,5 +1,7 @@
 # Food-lovers-client
+server-side : https://github.com/Tamanna-salma/Food-lovers-server
 Project: Food Lover Networks
+Live link : https://jovial-belekoy-f54712.netlify.app/
 
 *****Future Improvements ***
 
